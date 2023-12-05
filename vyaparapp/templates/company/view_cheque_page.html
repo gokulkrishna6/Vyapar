@@ -1,0 +1,85 @@
+{% extends 'company/src/html/base.html' %}
+{% load static %}
+{% block content %}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.6"
+    integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+    crossorigin="anonymous"></script>
+
+<style>
+    .bs {
+        box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.397);
+    }
+
+    .bs_sm {
+        box-shadow: inset 2px 2px 5px 3px rgba(0, 0, 0, 0.199);
+    }
+
+    .tb {
+        color: black;
+    }
+
+    .tg {
+        color: rgb(0, 140, 7);
+    }
+
+    .tr {
+        color: rgb(218, 0, 0);
+    }
+
+    .btn_add {
+        background-color: orange;
+        color: black;
+    }
+
+    .btn_add:hover {
+        background-color: rgb(234, 152, 0);
+        color: black;
+    }
+
+    .bg-pink {
+        background-color: rgb(239, 3, 82)
+    }
+
+    ::-webkit-scrollbar {
+        display: none
+    }
+</style>
+
+
+<div class="body-wrapper ">
+    <br><br>
+    <div class="d-flex justify-content-center pt-5" style="margin-top: 5px;">
+        <a href="" id="b1" class="btn  text-white"
+            style="margin-right: 10px; background-color: rgb(252, 3, 3,0.7);border-radius: 20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            Add Sale <i class="fa fa-plus"></i>
+        </a>
+        <a href="{% url 'add_purchasebill' %}" id="b2" class="btn  text-white"
+            style="margin-right: 10px;background-color: rgba(3, 161, 252, 0.7);border-radius: 20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            Add Purchase <i class="fa fa-plus"></i>
+        </a>
+        <a href="" id="b3" class="btn text-primary"
+            style="border-radius: 20px;border: 1px solid rgb(40, 12, 222);background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            Add More <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <hr>
+    <div class="p-5 text-center" style="display: flex;justify-content: center;">
+        <div class="card "
+            style="background-color: white;width:50rem;box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.249);">
+            <div class="row">
+                <div  class="col-sm-12  " >
+                    <center>
+                        <img style="width: 300px; height: 300px;" src="{% static 'images/cheque.png' %}"   alt="no img">
+                    </center>
+                    <p>Payment received through cheque for your invoices will be shown there</p>
+                </div>
+           
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
