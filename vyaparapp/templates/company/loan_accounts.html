@@ -1,0 +1,259 @@
+{% extends 'company/src/html/base.html' %}
+{% load static %}
+{% block content %}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.6"
+    integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+    crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/2a2f1ba69e.js" crossorigin="anonymous"></script>
+
+<style>
+    .bs {
+        box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.397);
+    }
+
+    .bs_sm {
+        box-shadow: inset 2px 2px 5px 3px rgba(0, 0, 0, 0.199);
+    }
+
+    .tb {
+        color: black;
+    }
+
+    .tg {
+        color: rgb(0, 140, 7);
+    }
+
+    .tr {
+        color: rgb(218, 0, 0);
+    }
+
+    .btn_add {
+        background-color: orange;
+        color: black;
+    }
+
+    .btn_add:hover {
+        background-color: rgb(234, 152, 0);
+        color: black;
+    }
+
+    .bg-pink {
+        background-color: rgb(239, 3, 82)
+    }
+
+    ::-webkit-scrollbar {
+        display: none
+    }
+</style>
+
+
+<div class="body-wrapper ">
+    <br><br>
+    <div class="d-flex justify-content-center pt-5" style="margin-top: 5px;">
+        <a href="" id="b1" class="btn  text-white"
+            style="margin-right: 10px; background-color: rgb(252, 3, 3,0.7);border-radius: 20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            Add Sale <i class="fa fa-plus"></i>
+        </a>
+        <a href="{% url 'add_purchasebill' %}" id="b2" class="btn  text-white"
+            style="margin-right: 10px;background-color: rgba(3, 161, 252, 0.7);border-radius: 20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            Add Purchase <i class="fa fa-plus"></i>
+        </a>
+        <a href="" id="b3" class="btn text-primary"
+            style="border-radius: 20px;border: 1px solid rgb(40, 12, 222);background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            Add More <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <hr>
+    <h5 class="text-center">Loan Accounts</h5>
+    <br>
+    <div class="p-2 " style="display: flex;flex-direction: row ; justify-content:space-around;">
+
+        <div class=" "
+            style=" background-color: white;width:20rem;height: 30rem; box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.249);">
+            <div class=" ">
+                <div class="col-sm-12 container bg-light mt-2">
+
+                    <div class="ms-2">
+                        <small>
+                            Business Loans up to 30 lakhs!<br>
+                            Now avail loans with completely digital process,<br> no collateral and fast disbursal
+                        </small>
+                        <br>
+                        <button style="border-radius: 30px;" type="button"
+                            class="btn  btn-light mt-2 text-primary">Explore Now</button>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div style="display: flex; flex-direction: row; justify-content:space-between;" class="mx-2">
+
+                <div>
+
+                    <button style="border-radius:50%; width: 50px; height: 50px;" type="button"
+                        class="btn btn-light mt-2 "> <i class="fa-solid fa-magnifying-glass"></i></button>
+
+                </div>
+
+                <div>
+                    
+
+                    <button style="border-radius: 10px;" type="button"
+                        class="btn btn-light mt-2 text-white bg-warning"><a class="text-white" href="{% url 'add_loan_acounts' %}">Add Loan A/C</a></button>
+
+
+                </div>
+            </div>
+            <br>
+            <div style="display: flex;justify-content: space-between;">
+                <div class="">
+                    <button type="button" class="btn btn-white w-100">ACCOUNT</button>
+                </div>
+                <div class=" ">
+                    <button type="button" class="btn btn-white w-100">AMOUNT</button>
+                </div>
+            </div>
+        </div>
+        <style>
+
+        </style>
+
+        <div class=" ">
+            <div class="" style="width:55rem;">
+                <div class="col-sm-12 "
+                    style="background-color: white;box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.249);">
+
+                    <div style=" display: flex; justify-content: space-between;" class="mx-2 pt-3">
+                        <div class="text-dark">
+                            <h6>Lending Bank / Agency :</h6>
+                            <h6>Account Number</h6>
+                            <h6>Bank Amount :</h6>
+
+                        </div>
+
+                        <div style="display: flex;">
+
+
+                            <div class="dropdown" style="border-radius: 500px;">
+
+
+                                <button type="button" class="btn btn-primary " style="" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-sliders"></i>&nbsp; Make Payment
+
+
+                                    <button class="btn btn-primary dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+
+
+                                    </button>
+
+                                </button>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Take more loan</a></li>
+                                    <li><a class="dropdown-item" href="#">Charges on loan</a></li>
+
+                                </ul>
+                                <br> <br>
+                                <a href="">
+                                    <h6>View Loan Statement</h6>
+                                </a>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-12 mt-3  "
+                    style="background-color: white;box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.249);">
+
+                    <br>
+
+                    <div style="display: flex; justify-content: space-between;" class="mx-2">
+                        <div>
+                            <h6>TRANSACTIONS</h6>
+                        </div>
+                        <div class="input-group rounded " style="width:20vw;">
+                            <span class="input-group-text border-0 bg-light" id="search-addon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="search" class="form-control rounded" aria-label="Search"
+                                aria-describedby="search-addon" />
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <div>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">TYPE</th>
+                                    <th scope="col">DATE</th>
+                                    <th scope="col">PRINCIPAL</th>
+                                    <th scope="col">INTEREST</th>
+                                    <th scope="col">TOTAL AMOUNT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+
+                                </tr>
+                                <tr>
+
+
+                                </tr>
+                                <tr>
+
+
+                                </tr>
+                                <tr>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
